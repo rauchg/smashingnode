@@ -1,0 +1,72 @@
+
+@media only screen and (max-width: 1343px) {
+  #page {
+    padding-left: 190px;
+  }
+  #wrap {
+    background-size: 600px;
+  }
+}
+
+@media only screen and (max-width: 1170px) {
+  #wrap {
+    width: 1170px;
+    background-attachment: scroll;
+    background-position: right 300px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #wrap {
+    width: 100%;
+    background-position: right 10px;
+    background-size: 800px;
+  }
+  #page {
+    padding-top: 540px;
+    background-position: -180px;
+    padding-left: 50px;
+    background-attachment: scroll;
+    background-position: -200px bottom;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #wrap {
+    width: 100%;
+    background-position: left 10px;
+    background-size: 400px;
+  }
+  h1 {
+    font-size: 40px !important;
+  }
+  #page {
+    background-attachment: scroll;
+    background: none;
+    padding-top: 250px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  h2 {
+    margin-bottom: 20px;
+  }
+  #buy {
+    text-align: center;
+  }
+  #buy a {
+    margin-bottom: 10px;
+  }
+  .button {
+    width: 220px;
+    font-size: 18px;
+  }
+  #bio {
+    background-position: top center;
+    padding-top: 140px;
+    padding-left: 0;
+    text-align: center;
+  }
+  h1 {
+    font-size: 40px;
+  }
+}
