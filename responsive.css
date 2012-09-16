@@ -19,11 +19,11 @@
 @media only screen and (max-width: 1024px) {
   #wrap {
     width: 100%;
-    background-position: right 10px;
-    background-size: 800px;
+    background-position: right 80px;
+    background-size: 810px;
   }
   #page {
-    padding-top: 540px;
+    padding-top: 700px;
     background-position: -180px;
     padding-left: 50px;
     background-attachment: scroll;
