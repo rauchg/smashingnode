@@ -1,0 +1,24 @@
+
+h2 All items
+
+if (items.length)
+  ul
+    each item in items
+      li
+        h3: a(href="/item/#{item.id}")= item.title
+        = item.description
+else
+  p No items to show
+
+h2 Create new item
+
+form(action="/create", method="POST")
+  p
+    label Title
+    input(type="text", name="title")
+  p
+    label Description
+    textarea(name="description")
+  p
+    button Submit
+

@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/chat.js"></script>
+    <link href="/chat.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="chat">
+      <ul id="messages"></ul>
+      <form id="form">
+        <input type="text" id="input" />
+        <button>Send</button>
+      </form>
+      <div id="playing"></div>
+
+      <form id="dj">
+        <h3>Search songs</h3>
+        <input type="text" id="s" />
+        <ul id="results"></ul>
+        <button>Search</button>
+      </form>
+    </div>
+  </body>
+</html>
+

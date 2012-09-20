@@ -1,0 +1,12 @@
+
+<h1>Tweet results for <%= search %></h1>
+
+<% if (results.length) { %>
+  <ul>
+    <% for (var i = 0; i < results.length; i++) { %>
+    <li><a href="<%= results[i].url %>"><%= results[i].text %></a> - <em><%= results[i].from_user %></li>
+    <% } %>
+  </ul>
+<% } else { %>
+  <p>No results</p>
+<% } %>

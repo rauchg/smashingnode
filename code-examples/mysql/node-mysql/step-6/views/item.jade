@@ -1,0 +1,32 @@
+
+a(href="/") Go back
+
+h2= item.title
+p= item.description
+
+h3 User reviews
+
+if (reviews.length)
+  each review in reviews
+    .review
+      b #{review.stars} stars
+      p= review.text
+    hr
+else
+  p No reviews to show. Write one!
+
+h4 Create review
+form(action="/item/#{item.id}/review", method="POST")
+  p
+    label Stars
+    select
+      option 1
+      option 2
+      option 3
+      option 4
+      option 5
+  p
+    label Review
+    textarea(name="text")
+  p
+    submit Send

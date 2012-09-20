@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <title>WebSocket echo test</title>
+    <script>
+      var open = false
+        , lastMessage
+
+      window.onload = function () {
+        // create socket
+        var ws = new WebSocket('ws://localhost:3000');
+        ws.onopen = function () {
+          open = true;
+        }
+        ws.onmessage = function () {
+          // we got echo back, measure latency
+          document.getElementById('latency').innerHTML = new Date - lastMessage;
+        }
+
+        // attach listeners to form
+        document.getElementById('send').onsubmit = function () {
+          if (open) {
+            // record the timestamp
+            lastMessage = +new Date;
+            // send the message
+            ws.send(document.getElementById('text').value);
+            // clear the input
+            document.getElementById('text').value = '';
+            document.getElementById('text').focus();
+          }
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>WebSocket Echo</h1>
+    <h2>Latency: <span id="latency"></span>ms</h2>
+
+    <form id="send">
+      <input type="text" id="text">
+      <button>Submit</button>
+    </form>
+  </body>
+</html>

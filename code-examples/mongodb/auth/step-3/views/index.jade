@@ -1,0 +1,9 @@
+
+if (authenticated)
+  p Welcome back, #{me.name}
+  a(href="/logout") Logout
+else
+  p Welcome new visitor!
+  ul
+    li: a(href="/login") Login
+    li: a(href="/signup") Signup

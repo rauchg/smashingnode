@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <title>WebSocket cursors</title>
+    <script src="onload">
+      window.onload = function () {
+        var ws = new WebSocket('ws://localhost');
+
+        ws.onopen = function () {
+          document.onmousemove = function (ev) {
+            ws.send(JSON.stringify({ x: ev.clientX, y: ev.clientY }));
+          }
+        }
+
+        ws.onmessage = function (msg) {
+          var obj = JSON.parse(msg);
+
+          // the first message is the position of all existing cursors
+          if (initialized) {
+            initialized = true;
+            for (var id in obj) {
+              move(id, obj[i]);
+            }
+          } else {
+            // other messages can either be a position change or
+            // a disconnection
+            if ('disconnect' == obj.type) {
+              remove(obj.id);
+            } else {
+              move(obj.id, obj.pos);
+            }
+          }
+        }
+
+        function move (id, pos) {
+          var cursor = document.getElementById('cursor-' + id);
+
+          if (!cursor) {
+            cursor = document.createElement('img');
+            cursor.src = '/cursor.png';
+            cursor.style.position = 'absolute';
+            document.body.appendChild(cursor);
+          }
+
+          cursor.style.left = pos.x + 'px';
+          cursor.style.top = pos.y + 'px';
+        }
+
+        function remove (id) {
+          var cursor = document.getElementById('cursor-' + id);
+          cursor.parentNode.removeChild(cursor);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>WebSocket cursors</h1>
+  </body>
+</html>
